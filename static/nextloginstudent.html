@@ -177,6 +177,11 @@ h{
   margin-top:10%;
   margin-left:46%;
 }
+#loading5{
+  display:none;
+  margin-top:10%;
+  margin-left:46%;
+}
 #profilevalue{
   display:none;
 }
@@ -253,8 +258,39 @@ top:3px;
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
   #homepage{
-    style:block;
+    display:block;
   }
+  #news{
+    display:none;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  #myForm5{
+    margin:auto;
+    width:60%
+  }
+  #user1{
+    display:none;
+  }
+  #username1{
+    display:none;
+  }
+  #currentdate{
+    display:none;
+  }
+  .newssubmit {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 15px;
+}
   /* Modal Content */
   .modal-content {
       background-color: #fefefe;
@@ -303,6 +339,7 @@ top:3px;
 <div>
 <ul class="topnav">
   <li><a onclick="homepage()">Home</a></li>
+  <li><a id="newsdata" onclick="newsfeed()">News feed</a></li>
   <li><a onclick="viewjob()">Apply Jobs</a></li>
   <li><a onclick="home()">View Applied Jobs</a></li>
   <li><a id="performance1" onclick="performance()">Performance section</a></li>
@@ -452,6 +489,47 @@ top:3px;
 
 
 </div>
+
+<div id="news">
+ <form id="myForm5">
+   <br>
+   <br>
+    <h5>Post your thoughts</h5>
+    <div class="row">
+         <div class="col-md-6">
+             <div class="form-group">
+               <input type="text" id="user1" name="usermail" class="form-control" placeholder="UserID *" value="" />
+             </div>
+             <div class="form-group">
+               <input type="text" id="username1" name="name" class="form-control" placeholder="UserID *" value="" />
+             </div>
+             <div class="form-group">
+               <input type="text" id="caption" name="caption" class="form-control" placeholder="Caption " value="" />
+             </div>
+             <div class="form-group">
+                 <input type="text" id="post1" name="post" class="form-control" placeholder="drive link *" value="" required/>
+             </div>
+             <p style="color:blue">Upload the image from google drive and paste the link in above box.</p>
+             <div class="form-group">
+                 <input id="currentdate" type="text" name="currentdate" class="form-control" placeholder="date" value="" />
+             </div>
+             <div class="form-group">
+                 <input class="newssubmit" type="submit" id="submit5" name="btnSubmit" class="btnContact" value="submit" />
+             </div>
+             <br>
+         </div>
+
+     </div>
+     <p>Click here to view your posts <a id="postdata"><u style="color:blue;"> Your post </u></a></p>
+
+ </form>
+
+ <div id="loading5" class="spinner-border text-primary"></div>
+ <div id="output5"></div>
+
+</div>
+
+
 <div id="viewjob">
   <div class="w3-center">
   <br>
@@ -529,12 +607,12 @@ top:3px;
   <h2 class="w3-xlarge w3-center"><i>Please attend this test to update your performance score </i></h2><br>
   <p>First time score only will be considered</p>
   <div class="w3-hide-small">
-   <button class="viewbtn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfU2Ke1FFhOzzMKJaqxqeGa8YppEAHXuCMMBILWf2w8TMZHww/viewform')" type="button" id="loadData11">Numerical Aptitude</button>
-   <button class="viewbtn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfU2Ke1FFhOzzMKJaqxqeGa8YppEAHXuCMMBILWf2w8TMZHww/viewform')" type="button" id="loadData12">Performance </button>
+   <button class="viewbtn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScrbZwT_9QHsKupEJFTvxvxnTiM3q4iRM6YhVtgN-vCh1OJTQ/viewform')" type="button" id="loadData11">WDVM-01</button>
+   <button class="viewbtn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdsZH_DV6h3ZRj8YBecqtoRI5U7jW26vn9jAe6cITwLVZGv5g/viewform')" type="button" id="loadData12">BDE-01</button>
  </div>
  <div class="w3-hide-large w3-hide-medium">
-  <button class="viewbtn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfU2Ke1FFhOzzMKJaqxqeGa8YppEAHXuCMMBILWf2w8TMZHww/viewform')" type="button" id="loadDatas11">Numerical Aptitude</button><hr>
-  <button class="viewbtn" onclick="window.open('http://www.google.com')" type="button" id="loadDatas12">Performance </button>
+  <button class="viewbtn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScrbZwT_9QHsKupEJFTvxvxnTiM3q4iRM6YhVtgN-vCh1OJTQ/viewform')" type="button" id="loadDatas11">WDVM-01</button><hr>
+  <button class="viewbtn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdsZH_DV6h3ZRj8YBecqtoRI5U7jW26vn9jAe6cITwLVZGv5g/viewform')" type="button" id="loadDatas12">BDE-01</button>
 </div>
    <hr>
 </div>
@@ -692,6 +770,13 @@ top:3px;
 </div>
 <script>
 var _0x4941=["\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x72\x65\x73\x75\x6C\x74","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x74\x65\x78\x74\x76\x61\x6C\x75\x65","\x67\x65\x74\x49\x74\x65\x6D","\x76\x61\x6C\x75\x65","\x75\x73\x65\x72","\x71\x75\x61\x6C\x69\x66\x69\x63\x61\x74\x69\x6F\x6E","\x71\x75\x61\x6C\x69\x66\x69\x63\x61\x74\x69\x6F\x6E\x76\x61\x6C\x75\x65","\x65\x78\x70\x65\x72\x69\x65\x6E\x63\x65","\x65\x78\x70\x65\x72\x69\x65\x6E\x63\x65\x76\x61\x6C\x75\x65","\x72\x65\x73\x75\x6D\x65","\x72\x65\x73\x75\x6D\x65\x76\x61\x6C\x75\x65","\x6D\x79\x4D\x6F\x64\x61\x6C","\x6D\x79\x42\x74\x6E","\x63\x6C\x6F\x73\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x43\x6C\x61\x73\x73\x4E\x61\x6D\x65","\x6F\x6E\x63\x6C\x69\x63\x6B","\x64\x69\x73\x70\x6C\x61\x79","\x73\x74\x79\x6C\x65","\x62\x6C\x6F\x63\x6B","\x6E\x6F\x6E\x65"];document[_0x4941[2]](_0x4941[1])[_0x4941[0]]= localStorage[_0x4941[4]](_0x4941[3]);document[_0x4941[2]](_0x4941[6])[_0x4941[5]]= localStorage[_0x4941[4]](_0x4941[3]);document[_0x4941[2]](_0x4941[7])[_0x4941[5]]= localStorage[_0x4941[4]](_0x4941[8]);document[_0x4941[2]](_0x4941[9])[_0x4941[5]]= localStorage[_0x4941[4]](_0x4941[10]);document[_0x4941[2]](_0x4941[11])[_0x4941[5]]= localStorage[_0x4941[4]](_0x4941[12]);var modal=document[_0x4941[2]](_0x4941[13]);var btn=document[_0x4941[2]](_0x4941[14]);var span=document[_0x4941[16]](_0x4941[15])[0];btn[_0x4941[17]]= function(){modal[_0x4941[19]][_0x4941[18]]= _0x4941[20]};span[_0x4941[17]]= function(){modal[_0x4941[19]][_0x4941[18]]= _0x4941[21]}
+
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("currentdate").value =  m + "/" + d + "/" + y;
+
 </script>
 
 </body>
